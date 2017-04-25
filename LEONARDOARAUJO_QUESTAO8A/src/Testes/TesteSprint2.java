@@ -53,7 +53,8 @@ public class TesteSprint2 {
 	
 	@Test
 	public void falhaAoEmprestarLivroPorUsuarioNãoExistir() {
-		assertEquals("Erro. Usuario Luiz não existe.",bibliotecaria.emprestarLivro(1,"João"));
+		when(bd.buscarLivro(1)).thenReturn(livro1);
+		assertEquals("Erro. Usuário João não existe.",bibliotecaria.emprestarLivro(1,"João"));
 	}
 	
 	@Test

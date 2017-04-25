@@ -55,6 +55,10 @@ public class Bibliotecaria {
 		if(livro == null){
 			return "Erro. Livro " + idLivro + " não existe.";
 		}
+		Usuario usuario = bancoDeDados.buscarUsuario(nomeUsuario);
+		if(usuario == null){
+			return "Erro. Usuário " + nomeUsuario + " não existe.";
+		}
 		return null;
 	}
 	
