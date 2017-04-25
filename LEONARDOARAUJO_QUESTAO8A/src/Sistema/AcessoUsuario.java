@@ -33,7 +33,7 @@ public class AcessoUsuario {
 		if(livro == null){
 			return "Erro. Livro " +idLivro + " não encontrado.";
 		}
-		return null;
+		return "Livro " + idLivro + " está " + livro.getStatus() + ".";
 	}
 	
 	
