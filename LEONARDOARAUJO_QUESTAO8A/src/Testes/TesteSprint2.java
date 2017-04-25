@@ -87,6 +87,7 @@ public class TesteSprint2 {
 	
 	@Test
 	public void falhaAoDevolverLivroPorLivroNãoEstarEmprestado() {
+		when(bd.buscarLivro(2)).thenReturn(livro2);
 		assertEquals("Erro. Livro 2 não está emprestado.",bibliotecaria.devolverLivro(2));
 	}
 

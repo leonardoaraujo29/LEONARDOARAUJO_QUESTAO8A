@@ -76,6 +76,9 @@ public class Bibliotecaria {
 		if(livro == null){
 			return "Erro. Livro " + idLivro + " não existe.";
 		}
+		if(livro.getStatus() == "Disponível"){
+			return "Erro. Livro " + idLivro + " não está emprestado.";
+		}
 		return null;
 	}
 	
