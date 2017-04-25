@@ -72,6 +72,10 @@ public class Bibliotecaria {
 	}
 	
 	public String devolverLivro(int idLivro){
+		Livro livro = bancoDeDados.buscarLivro(idLivro);
+		if(livro == null){
+			return "Erro. Livro " + idLivro + " não existe.";
+		}
 		return null;
 	}
 	
