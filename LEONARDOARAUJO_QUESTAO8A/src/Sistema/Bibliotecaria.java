@@ -41,7 +41,13 @@ public class Bibliotecaria {
 	}
 	
 	public String inserirLivro(String nomeLivro,String autorLivro,int idLivro){
-		return null;
+		Livro livro = bancoDeDados.buscarLivro(idLivro);
+		if(livro != null){
+			return  "Erro. Id " + idLivro + " já existente.";
+		}
+		livro = new Livro(nomeLivro,autorLivro,idLivro);
+		bancoDeDados.inserirLivro(livro);
+		return "Livro Id " + idLivro + " inserido com sucesso.";
 	}
 	
 	public String emprestarLivro(int idLivro, String nomeUsuario){
