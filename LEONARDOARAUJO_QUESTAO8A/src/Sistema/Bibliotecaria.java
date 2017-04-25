@@ -51,6 +51,10 @@ public class Bibliotecaria {
 	}
 	
 	public String emprestarLivro(int idLivro, String nomeUsuario){
+		Livro livro = bancoDeDados.buscarLivro(idLivro);
+		if(livro == null){
+			return "Erro. Livro " + idLivro + " não existe.";
+		}
 		return null;
 	}
 	
