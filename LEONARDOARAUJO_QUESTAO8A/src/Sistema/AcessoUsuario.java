@@ -22,7 +22,9 @@ public class AcessoUsuario {
 		if(usuario == null){
 			return "Erro. Usuário " + nomeUsuario + " não existe.";
 		}
-		return null;
+		usuario.setLogado(true);
+		bd.atualizarUsuario(usuario);
+		return "Usuário " + nomeUsuario + " logado com sucesso.";
 		
 	}
 	
