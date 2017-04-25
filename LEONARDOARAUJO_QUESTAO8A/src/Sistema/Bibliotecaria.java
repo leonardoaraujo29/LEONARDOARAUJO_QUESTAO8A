@@ -9,7 +9,13 @@ public class Bibliotecaria {
 	}
 	
 	public String inserirUsuario(String nomeUsuario){
-		return null;
+		Usuario usuario = bancoDeDados.buscarUsuario(nomeUsuario);
+		if(usuario != null){
+			return  "Erro. Nome " + nomeUsuario + " já existente.";
+		}
+		usuario = new Usuario(nomeUsuario);
+		bancoDeDados.inserirUsuario(usuario);
+		return "Usuário " + nomeUsuario + " inserido com sucesso.";
 	}
 	
 	public String removerUsuario(String nomeUsuario){
