@@ -62,6 +62,9 @@ public class Bibliotecaria {
 		if(livro.getStatus() != "Disponível"){
 			return "Erro. Livro " + idLivro + " indisponível.";
 		}
+		if(usuario.isBloqueado()){
+			return "Erro. Usuário " + nomeUsuario + " bloqueado.";
+		}
 		return null;
 	}
 	

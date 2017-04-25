@@ -67,7 +67,10 @@ public class TesteSprint2 {
 	
 	@Test
 	public void falhaAoEmprestarLivroPorUsuarioEstarBloqueado() {
-		assertEquals("Erro. Usuario bloquado.",bibliotecaria.emprestarLivro(2,"Luiz"));
+		usuario2.setBloqueado(true);
+		when(bd.buscarLivro(2)).thenReturn(livro2);
+		when(bd.buscarUsuario("Luiz")).thenReturn(usuario2);
+		assertEquals("Erro. Usuário Luiz bloqueado.",bibliotecaria.emprestarLivro(2,"Luiz"));
 	}
 	
 	@Test
