@@ -7,5 +7,6 @@ public interface BancoDeDados {
 	public void atualizarUsuario(Usuario usuario);
 	public Livro buscarLivro(int idLivro);
 	public void inserirLivro(Livro livro);
+	public void atualizarLivro(Livro livro);
 	
 }

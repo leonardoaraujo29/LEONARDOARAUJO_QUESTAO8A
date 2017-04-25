@@ -41,7 +41,9 @@ public class TesteSprint2 {
 	
 	@Test
 	public void emprestarUmLivroComSucesso() {
-		assertEquals("Livro 1 emprestado com sucesso para usuario Leonardo.",bibliotecaria.emprestarLivro(1,"Leonardo"));
+		when(bd.buscarLivro(1)).thenReturn(livro1);
+		when(bd.buscarUsuario("Leonardo")).thenReturn(usuario1);
+		assertEquals("Livro 1 emprestado com sucesso para usuário Leonardo.",bibliotecaria.emprestarLivro(1,"Leonardo"));
 		assertEquals("Retirado",livro1.getStatus());
 		assertEquals(usuario1,livro1.getLocatario());
 	}

@@ -65,7 +65,10 @@ public class Bibliotecaria {
 		if(usuario.isBloqueado()){
 			return "Erro. Usuário " + nomeUsuario + " bloqueado.";
 		}
-		return null;
+		livro.setStatus("Retirado");
+		livro.setLocatario(usuario);
+		bancoDeDados.atualizarLivro(livro);
+		return "Livro " + idLivro + " emprestado com sucesso para usuário " + nomeUsuario + ".";
 	}
 	
 	public String devolverLivro(int idLivro){
