@@ -77,7 +77,11 @@ public class TesteSprint2 {
 	
 	@Test
 	public void devolverLivroComSucesso() {
+		livro1.setStatus("Retirado");
+		when(bd.buscarLivro(1)).thenReturn(livro1);
 		assertEquals("Livro 1 devolvido com sucesso.",bibliotecaria.devolverLivro(1));
+		assertEquals(null,livro1.getLocatario());
+		assertEquals("Disponível",livro1.getStatus());
 	}
 	
 	@Test

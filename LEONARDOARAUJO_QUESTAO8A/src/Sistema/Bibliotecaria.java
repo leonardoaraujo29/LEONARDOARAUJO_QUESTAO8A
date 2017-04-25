@@ -79,7 +79,10 @@ public class Bibliotecaria {
 		if(livro.getStatus() == "Disponível"){
 			return "Erro. Livro " + idLivro + " não está emprestado.";
 		}
-		return null;
+		livro.setStatus("Disponível");
+		livro.setLocatario(null);
+		bancoDeDados.atualizarLivro(livro);
+		return "Livro " + idLivro + " devolvido com sucesso.";
 	}
 	
 
