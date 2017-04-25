@@ -29,6 +29,10 @@ public class AcessoUsuario {
 	}
 	
 	public String pesquisarLivro(int idLivro){
+		Livro livro = bd.buscarLivro(idLivro);
+		if(livro == null){
+			return "Erro. Livro " +idLivro + " não encontrado.";
+		}
 		return null;
 	}
 	
