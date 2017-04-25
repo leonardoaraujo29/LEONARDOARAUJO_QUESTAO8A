@@ -41,9 +41,10 @@ public class TesteSprint1 {
 	
 	@Test
 	public void bloquearUsuarioComSucesso() {
-		when(bd.buscarUsuario("Luiz")).thenReturn(new Usuario("Luiz"));
+		when(bd.buscarUsuario("Luiz")).thenReturn(usuario2);
 		//when(bd.atualizarUsuario(any())).doNothing();
 		assertEquals("Usuario Luiz bloqueado com sucesso.",bibliotecaria.bloquearUsuario("Luiz"));
+		assertTrue(usuario2.isBloqueado());
 	}
 	
 	@Test
@@ -56,10 +57,10 @@ public class TesteSprint1 {
 	
 	@Test
 	public void falhaAoBloquearUsuarioPorJaEstarBloqueado() {
-		Usuario usuario = new Usuario("Luiz");
-		usuario.setBloqueado(true);
-		when(bd.buscarUsuario("Luiz")).thenReturn(usuario);
+		usuario2.setBloqueado(true);
+		when(bd.buscarUsuario("Luiz")).thenReturn(usuario2);
 		assertEquals("Não foi possível bloquear usuário Luiz. Esse usuário já está bloqueado.",bibliotecaria.bloquearUsuario("Luiz"));
+		assertTrue(usuario2.isBloqueado());
 	}
 
 }
