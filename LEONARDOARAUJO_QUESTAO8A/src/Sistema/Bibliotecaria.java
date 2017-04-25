@@ -40,5 +40,17 @@ public class Bibliotecaria {
 		return "Usuario " + nomeUsuario +  " bloqueado com sucesso.";
 	}
 	
+	public String inserirLivro(String nomeLivro,String autorLivro,int idLivro){
+		return null;
+	}
+	
+	public String emprestarLivro(int idLivro, String nomeUsuario){
+		return null;
+	}
+	
+	public String devolverLivro(int idLivro){
+		return null;
+	}
+	
 
 }
