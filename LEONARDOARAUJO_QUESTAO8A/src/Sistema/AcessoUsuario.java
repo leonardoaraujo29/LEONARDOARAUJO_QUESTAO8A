@@ -18,6 +18,10 @@ public class AcessoUsuario {
 	}
 	
 	public String acessarSistema(String nomeUsuario){
+		Usuario usuario = bd.buscarUsuario(nomeUsuario);
+		if(usuario == null){
+			return "Erro. Usuário " + nomeUsuario + " não existe.";
+		}
 		return null;
 		
 	}
