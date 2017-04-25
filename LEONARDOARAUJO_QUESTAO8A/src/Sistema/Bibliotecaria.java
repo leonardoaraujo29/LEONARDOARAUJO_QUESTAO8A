@@ -19,7 +19,12 @@ public class Bibliotecaria {
 	}
 	
 	public String removerUsuario(String nomeUsuario){
-		return null;
+		Usuario usuario = bancoDeDados.buscarUsuario(nomeUsuario);
+		if(usuario == null){
+			return "Não foi possível remover usuário " + nomeUsuario + ". Esse usuário não existe.";
+		}		
+		bancoDeDados.removerUsuario(usuario);
+		return "Usuário " + nomeUsuario + " removido com sucesso.";
 	}
 	
 	public String bloquearUsuario(String nomeUsuario){
