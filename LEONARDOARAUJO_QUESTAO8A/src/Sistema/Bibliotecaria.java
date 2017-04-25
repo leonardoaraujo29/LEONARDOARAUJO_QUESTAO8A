@@ -28,7 +28,16 @@ public class Bibliotecaria {
 	}
 	
 	public String bloquearUsuario(String nomeUsuario){
-		return null;
+		Usuario usuario = bancoDeDados.buscarUsuario(nomeUsuario);
+		if(usuario == null){
+			return "Não foi possível bloquear usuário " + nomeUsuario + ". Esse usuário não existe.";
+		}
+		if(usuario.isBloqueado()){
+			return "Não foi possível bloquear usuário " + nomeUsuario + ". Esse usuário já está bloqueado.";
+		}
+		usuario.setBloqueado(true);
+		bancoDeDados.atualizarUsuario(usuario);
+		return "Usuario " + nomeUsuario +  " bloqueado com sucesso.";
 	}
 	
 
