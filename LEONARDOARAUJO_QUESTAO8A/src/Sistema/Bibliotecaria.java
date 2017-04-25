@@ -59,6 +59,9 @@ public class Bibliotecaria {
 		if(usuario == null){
 			return "Erro. Usuário " + nomeUsuario + " não existe.";
 		}
+		if(livro.getStatus() != "Disponível"){
+			return "Erro. Livro " + idLivro + " indisponível.";
+		}
 		return null;
 	}
 	

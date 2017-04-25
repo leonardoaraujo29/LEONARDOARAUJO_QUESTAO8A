@@ -59,7 +59,10 @@ public class TesteSprint2 {
 	
 	@Test
 	public void falhaAoEmprestarLivroPorNãoEstarDisponivel() {
-		assertEquals("Erro. Livro indisponivel.",bibliotecaria.emprestarLivro(1,"Luiz"));
+		when(bd.buscarLivro(1)).thenReturn(livro1);
+		when(bd.buscarUsuario("Luiz")).thenReturn(usuario2);
+		livro1.setStatus("Retirado");
+		assertEquals("Erro. Livro 1 indisponível.",bibliotecaria.emprestarLivro(1,"Luiz"));
 	}
 	
 	@Test
